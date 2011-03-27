@@ -1,0 +1,81 @@
+" Jason Young <a.young.jason@gmail.com>
+" ln -s ~/.vimrc ~/.vim/dotvimrc
+
+" Reload configuration from .vimrc
+map <F12> :source ~/.vimrc<CR>
+
+" Autoselect, AddTabPages
+set guioptions=ae
+
+" Cursor can be positioned where there is no actual character
+set virtualedit=all
+
+" Search configuration
+set incsearch
+set showmatch
+set ignorecase		
+set smartcase
+
+" Mouse configuration 
+set mouse=a 
+set mousemodel=popup
+
+" Disable backups and swap files
+set nobackup
+set noswapfile
+
+" Minimal height of a window
+set winminheight=0
+
+" Window split resizing shortcuts
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
+" Re-highlight selected region after shifting left or right
+vnoremap < <gv
+vnoremap > >gv
+
+" Use Tab and Shift-Tab to shift left and right
+map <Tab> >0
+map <S-Tab> <0
+
+" Shift-Tab in insert mode left shifts the current line
+imap <S-Tab> <Esc> < i	
+
+" Surround selected code with '#if 0' and '#endif' - this only makes sense in
+" c/c++
+vmap sf <F5>"zdi#if 0<ENTER><C-R>z#endif<ENTER><ESC><F5>
+
+if version >= 600
+	filetype plugin indent on
+	filetype plugin on
+endif
+
+if version >= 730
+	set relativenumber
+
+	" Enable persistent undo
+	call system("mkdir ~/.vim/undo")
+	set undodir=~/.vim/.undo
+	set undofile
+endif
+
+if has("gui_running")
+	set lines=35 columns=90
+else
+	set background=dark
+endif
+
+autocmd Filetype html setlocal ts=2 sts=2 sw=2
+autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
+autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
+
+" TODO research or remove
+"set wildmenu
+"set shortmess=atI
+"set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+"set cino=:0(0
+"let NERDTreeMouseMode = 3
+"let NERDTreeIgnore=['\.o', '\~$']
+"set tw=72
+"syntax on
