@@ -1,5 +1,5 @@
 " Jason Young <a.young.jason@gmail.com>
-" ln -s ~/.vimrc ~/.vim/dotvimrc
+" ln -s ~/.vim/dotvimrc ~/.vimrc 
 
 " Reload configuration from .vimrc
 map <F12> :source ~/.vimrc<CR>
