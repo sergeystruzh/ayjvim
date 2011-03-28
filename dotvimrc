@@ -1,5 +1,13 @@
 " Jason Young <a.young.jason@gmail.com>
-" ln -s ~/.vim/dotvimrc ~/.vimrc 
+"
+" On Linux
+" 	git clone <...> ~/.vim
+" 	ln -s ~/.vim/dotvimrc ~/.vimrc
+"
+" On Windows
+" 	git clone <...> $HOME/ayjvim
+"	set runtimepath+=$HOME/ayjvim/
+"	source $HOME\ayjvim\dotvimrc
 
 " Reload configuration from .vimrc
 map <F12> :source ~/.vimrc<CR>
