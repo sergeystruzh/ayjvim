@@ -57,6 +57,9 @@ vmap sf <F5>"zdi#if 0<ENTER><C-R>z#endif<ENTER><ESC><F5>
 " Enable syntax highlighting by default
 syntax on
 
+" Fix backspace
+set backspace=indent,eol,start
+
 if version >= 600
 	filetype plugin indent on
 	filetype plugin on
