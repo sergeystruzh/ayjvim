@@ -16,7 +16,8 @@ map <F12> :source ~/.vimrc<CR>
 set guioptions=ae
 
 " Cursor can be positioned where there is no actual character
-set virtualedit=all
+" set virtualedit=all
+set modeline
 
 " Search configuration
 set incsearch
@@ -57,6 +58,9 @@ vmap sf <F5>"zdi#if 0<ENTER><C-R>z#endif<ENTER><ESC><F5>
 " Enable syntax highlighting by default
 syntax on
 
+" Disable wordwrap
+set nowrap
+
 " Fix backspace
 set backspace=indent,eol,start
 
@@ -65,7 +69,7 @@ if version >= 600
 	filetype plugin on
 endif
 
-if version >= 730
+if version >= 703
 	set relativenumber
 
 	" Enable persistent undo
@@ -77,13 +81,10 @@ endif
 
 if has("gui_running")
 	set lines=35 columns=90
-	set background=light
-else
-	set background=dark
 endif
 
 " Color scheme selection
-colorscheme solarized
+" colorscheme solarized
 function! ToggleBackground()
 	if (g:solarized_style=="dark")
 		let g:solarized_style="light"
@@ -103,10 +104,14 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
 autocmd Filetype javascript setlocal ts=4 sts=4 sw=4
 
+set guifont=Monospace\ 9
+
 " TODO research or remove
 "set wildmenu
 "set shortmess=atI
-"set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set laststatus=2
 "set cino=:0(0
 "let NERDTreeMouseMode = 3
 "let NERDTreeIgnore=['\.o', '\~$']
